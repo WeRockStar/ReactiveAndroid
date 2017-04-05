@@ -1,1 +1,1 @@
-### Reactive Android started project
+### Reactive Android starter project
