@@ -2,6 +2,8 @@ package com.werockstar.reactiveandroid.di;
 
 import com.werockstar.reactiveandroid.api.RxApi;
 
+import java.util.concurrent.TimeUnit;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -20,6 +22,8 @@ public class HttpModule {
     public OkHttpClient provideOHttp() {
         return new OkHttpClient.Builder()
                 .addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
+                .readTimeout(20, TimeUnit.SECONDS)
+                .writeTimeout(20, TimeUnit.SECONDS)
                 .build();
     }
 
