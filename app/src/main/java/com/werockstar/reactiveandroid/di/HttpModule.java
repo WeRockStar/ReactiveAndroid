@@ -32,6 +32,7 @@ public class HttpModule {
     @Singleton
     public Retrofit provideRetrofit() {
         return new Retrofit.Builder()
+                .baseUrl("https://api.github.com")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
