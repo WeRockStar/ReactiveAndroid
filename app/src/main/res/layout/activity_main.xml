@@ -7,34 +7,47 @@
     android:padding="8dp"
     tools:context="com.werockstar.reactiveandroid.view.MainActivity">
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/edtUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="username" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/edtPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="password"
-            android:inputType="textPassword" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btnSubmit"
-        android:layout_width="wrap_content"
+    <Button
+        android:layout_width="164dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="submit" />
+        android:text="Filtering"
+        android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Combining"
+        android:textAllCaps="false" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorPrimary" />
+
+    <Button
+        android:id="@+id/btnForm"
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Form validate"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnTyping"
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="User Typing"
+        android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="164dp"
+        android:id="@+id/btnRequestApi"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Request Github api"
+        android:textAllCaps="false" />
 
 </LinearLayout>

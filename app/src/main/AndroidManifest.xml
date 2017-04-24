@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.FormActivity" />
-        <activity android:name=".view.GithubActivity"></activity>
+        <activity android:name=".view.GithubActivity" />
+        <activity android:name=".view.SearchActivity"></activity>
     </application>
 
 </manifest>

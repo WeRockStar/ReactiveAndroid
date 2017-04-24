@@ -7,7 +7,6 @@ import javax.inject.Inject;
 
 public class GithubPresenter {
 
-
     private GithubPresenter.View view;
     private RxApi api;
 
