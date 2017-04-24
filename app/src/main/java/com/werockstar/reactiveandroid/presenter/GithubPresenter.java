@@ -5,14 +5,14 @@ import com.werockstar.reactiveandroid.api.RxApi;
 
 import javax.inject.Inject;
 
-public class MainPresenter {
+public class GithubPresenter {
 
 
-    private MainPresenter.View view;
+    private GithubPresenter.View view;
     private RxApi api;
 
     @Inject
-    public MainPresenter(RxApi api) {
+    public GithubPresenter(RxApi api) {
         this.api = api;
     }
 
@@ -20,7 +20,7 @@ public class MainPresenter {
 
     }
 
-    public void attachView(MainPresenter.View view) {
+    public void attachView(GithubPresenter.View view) {
         this.view = view;
     }
 }
