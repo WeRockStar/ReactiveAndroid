@@ -13,7 +13,7 @@ import java.util.List;
 
 public class GithubAdapter extends RecyclerView.Adapter<GithubViewHolder> {
 
-    List<GithubUserResponse> githubUsers;
+    private List<GithubUserResponse> githubUsers;
 
     public void setGithubUsers(List<GithubUserResponse> githubUsers) {
         this.githubUsers = githubUsers;

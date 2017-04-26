@@ -6,28 +6,27 @@
     android:orientation="vertical"
     tools:context="com.werockstar.reactiveandroid.view.FormActivity">
 
-    <android.support.design.widget.TextInputLayout
+    <EditText
+        android:id="@+id/edtUsername"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:hint="username" />
 
-        <EditText
-            android:id="@+id/edtUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="username" />
-    </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <EditText
+        android:id="@+id/edtPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:hint="password"
+        android:inputType="textPassword" />
 
-        <EditText
-            android:id="@+id/edtPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="password"
-            android:inputType="textPassword" />
-    </android.support.design.widget.TextInputLayout>
+
+    <EditText
+        android:id="@+id/edtAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="age"
+        android:inputType="number" />
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/btnSubmit"
@@ -35,6 +34,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="submit" />
-
 
 </LinearLayout>

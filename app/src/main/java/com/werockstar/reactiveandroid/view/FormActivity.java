@@ -18,6 +18,9 @@ public class FormActivity extends AppCompatActivity {
     @BindView(R.id.edtPassword)
     EditText edtPassword;
 
+    @BindView(R.id.edtAge)
+    EditText edtAge;
+
     @BindView(R.id.btnSubmit)
     Button btnSubmit;
 
@@ -28,5 +31,4 @@ public class FormActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
     }
-
 }
