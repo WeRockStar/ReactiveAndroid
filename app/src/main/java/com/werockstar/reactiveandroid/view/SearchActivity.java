@@ -1,7 +1,7 @@
 package com.werockstar.reactiveandroid.view;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 
 import com.werockstar.reactiveandroid.R;
@@ -12,7 +12,7 @@ import butterknife.ButterKnife;
 public class SearchActivity extends AppCompatActivity {
 
     @BindView(R.id.edtSearch)
-    EditText btnSearch;
+    EditText edtSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
