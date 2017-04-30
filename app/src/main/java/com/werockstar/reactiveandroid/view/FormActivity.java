@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.jakewharton.rxbinding2.widget.RxTextView;
 import com.werockstar.reactiveandroid.R;
+import com.werockstar.reactiveandroid.ReactiveApplication;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

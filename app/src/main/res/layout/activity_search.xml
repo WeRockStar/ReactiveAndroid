@@ -13,7 +13,7 @@
             android:id="@+id/edtSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="อยากพิมอะไรก็พิมไป" />
+            android:hint="github user" />
 
     </android.support.design.widget.TextInputLayout>
 
