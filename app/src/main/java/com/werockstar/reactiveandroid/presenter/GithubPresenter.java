@@ -68,6 +68,7 @@ public class GithubPresenter {
                         users -> {
                             view.onUsersResult(users);
                         }, throwable -> {
+                            view.onUsersError();
                             Log.e(TAG, "Error", throwable);
                         }
                 )
