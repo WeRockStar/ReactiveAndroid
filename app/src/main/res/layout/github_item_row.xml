@@ -29,6 +29,8 @@
         android:layout_marginTop="4dp"
         android:layout_toEndOf="@id/ivAvatar"
         android:layout_toRightOf="@id/ivAvatar"
+        android:autoLink="web"
+        android:maxLines="1"
         android:textSize="14sp"
         tools:text="Repository" />
 

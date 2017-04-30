@@ -2,6 +2,7 @@ package com.werockstar.reactiveandroid;
 
 import android.app.Application;
 
+import com.werockstar.reactiveandroid.di.AndroidModule;
 import com.werockstar.reactiveandroid.di.ApplicationComponent;
 import com.werockstar.reactiveandroid.di.DaggerApplicationComponent;
 import com.werockstar.reactiveandroid.di.HttpModule;
@@ -16,6 +17,7 @@ public class ReactiveApplication extends Application {
         super.onCreate();
 
         component = DaggerApplicationComponent.builder()
+                .androidModule(new AndroidModule(this))
                 .httpModule(new HttpModule())
                 .build();
     }

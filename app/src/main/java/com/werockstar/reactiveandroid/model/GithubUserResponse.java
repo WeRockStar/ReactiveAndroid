@@ -8,7 +8,7 @@ public class GithubUserResponse {
     private String name;
     @SerializedName("avatar_url")
     private String avatarUrl;
-    @SerializedName("bLog")
+    @SerializedName("blog")
     private String blog;
 
     public String getName() {
