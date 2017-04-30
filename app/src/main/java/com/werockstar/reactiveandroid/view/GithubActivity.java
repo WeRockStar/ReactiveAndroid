@@ -72,7 +72,6 @@ public class GithubActivity extends AppCompatActivity implements GithubPresenter
     @Override
     public void onUsersResult(List<GithubUserResponse> users) {
         adapter.setUsers(users);
-        adapter.notifyDataSetChanged();
     }
 
     @Override

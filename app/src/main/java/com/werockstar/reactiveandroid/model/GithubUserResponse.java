@@ -11,6 +11,12 @@ public class GithubUserResponse {
     @SerializedName("blog")
     private String blog;
 
+    public GithubUserResponse(String name, String avatarUrl, String blog) {
+        this.name = name;
+        this.avatarUrl = avatarUrl;
+        this.blog = blog;
+    }
+
     public String getName() {
         return name;
     }

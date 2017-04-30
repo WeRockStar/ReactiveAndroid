@@ -8,7 +8,6 @@ import com.werockstar.reactiveandroid.model.GithubUserResponse;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
@@ -56,6 +55,11 @@ public class GithubPresenter {
                     users.add(g);
                     users.add(a);
                     users.add(m);
+                    return users;
+                })
+                .onErrorReturn(__ -> {
+                    List<GithubUserResponse> users = new ArrayList<>();
+                    users.add(new GithubUserResponse("ไม่มีนะ", "นี่ก็ไม่มี", "และนี่ก็ไม่มี"));
                     return users;
                 })
                 .subscribeOn(Schedulers.io())

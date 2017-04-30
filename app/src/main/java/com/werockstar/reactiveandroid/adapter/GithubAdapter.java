@@ -28,6 +28,7 @@ public class GithubAdapter extends RecyclerView.Adapter<GithubViewHolder> {
 
     public void setUsers(List<GithubUserResponse> users) {
         this.users = users;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -44,6 +45,7 @@ public class GithubAdapter extends RecyclerView.Adapter<GithubViewHolder> {
         holder.tvBlog.setText(user.getBlog());
         Glide.with(context)
                 .load(user.getAvatarUrl())
+                .error(R.mipmap.ic_launcher_round)
                 .into(holder.ivAvatar);
     }
 
