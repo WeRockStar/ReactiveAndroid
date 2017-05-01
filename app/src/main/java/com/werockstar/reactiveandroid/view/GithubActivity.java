@@ -9,7 +9,6 @@ import android.widget.Button;
 import com.werockstar.reactiveandroid.R;
 import com.werockstar.reactiveandroid.ReactiveApplication;
 import com.werockstar.reactiveandroid.adapter.GithubAdapter;
-import com.werockstar.reactiveandroid.api.RxApi;
 import com.werockstar.reactiveandroid.model.GithubUserResponse;
 import com.werockstar.reactiveandroid.presenter.GithubPresenter;
 
@@ -28,9 +27,6 @@ public class GithubActivity extends AppCompatActivity implements GithubPresenter
 
     @BindView(R.id.usersList)
     RecyclerView rvUsersList;
-
-    @Inject
-    RxApi api;
 
     private final String TAG = GithubActivity.class.getSimpleName();
 
