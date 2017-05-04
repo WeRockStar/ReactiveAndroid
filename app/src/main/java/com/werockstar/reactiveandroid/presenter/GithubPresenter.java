@@ -1,8 +1,6 @@
 package com.werockstar.reactiveandroid.presenter;
 
 
-import android.util.Log;
-
 import com.werockstar.reactiveandroid.api.RxApi;
 import com.werockstar.reactiveandroid.model.GithubUserResponse;
 
@@ -19,7 +17,7 @@ import retrofit2.HttpException;
 
 public class GithubPresenter {
 
-    public RxApi api;
+    private RxApi api;
     private GithubPresenter.View view;
 
     private final CompositeDisposable disposable = new CompositeDisposable();
@@ -73,7 +71,6 @@ public class GithubPresenter {
                             view.onUsersResult(users);
                         }, throwable -> {
                             view.onUsersError();
-                            Log.e(TAG, "Error", throwable);
                         }
                 )
         );
