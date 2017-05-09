@@ -22,6 +22,9 @@
         <activity android:name=".view.FormActivity" />
         <activity android:name=".view.GithubActivity" />
         <activity android:name=".view.SearchActivity"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="90b26ce4dae81857d3646a606efc117d55b0866e" />
     </application>
 
 </manifest>
