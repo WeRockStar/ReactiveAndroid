@@ -20,6 +20,9 @@ apply plugin: 'com.neenbedankt.android-apt'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+
+    def releaseNotes = 'git log --pretty=format:%s --since "yesterday"'.execute([], project.rootDir).text.trim()
+
     defaultConfig {
         applicationId "com.werockstar.reactiveandroid"
         minSdkVersion 16
