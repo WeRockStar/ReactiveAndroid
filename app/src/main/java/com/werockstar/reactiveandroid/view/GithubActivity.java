@@ -45,6 +45,7 @@ public class GithubActivity extends AppCompatActivity implements GithubPresenter
 
         ButterKnife.bind(this);
 
+
         setUpRecyclerView();
     }
 
