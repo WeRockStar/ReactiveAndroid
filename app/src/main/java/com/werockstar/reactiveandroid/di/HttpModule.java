@@ -19,7 +19,7 @@ public class HttpModule {
 
     @Provides
     @Singleton
-    public OkHttpClient provideOHttp() {
+    public OkHttpClient provideOkHttp() {
         return new OkHttpClient.Builder()
                 .addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
                 .readTimeout(20, TimeUnit.SECONDS)
