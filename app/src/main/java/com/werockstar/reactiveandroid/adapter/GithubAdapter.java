@@ -28,7 +28,6 @@ public class GithubAdapter extends RecyclerView.Adapter<GithubViewHolder> {
 
     public void setUsers(List<GithubUserResponse> users) {
         this.users = users;
-        notifyDataSetChanged();
     }
 
     @Override

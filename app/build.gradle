@@ -16,7 +16,6 @@ repositories {
     mavenCentral()
 }
 
-apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.neenbedankt.android-apt'
 
 android {
