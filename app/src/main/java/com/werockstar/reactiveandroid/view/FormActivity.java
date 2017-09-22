@@ -39,15 +39,15 @@ public class FormActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Observable<String> usernameObs = RxTextView.textChanges(edtUsername)
-                .map(username -> username.toString());
+                .map(CharSequence::toString);
 
         Observable<String> passwordObs = RxTextView.textChanges(edtPassword)
-                .map(password -> password.toString());
+                .map(CharSequence::toString);
 
         Observable<Integer> ageObs = RxTextView.textChanges(edtAge)
-                .map(age -> age.toString())
+                .map(CharSequence::toString)
                 .map(age -> age.equalsIgnoreCase("") ? "0" : age)
-                .map(age -> Integer.parseInt(age));
+                .map(Integer::parseInt);
 
         disposable.add(Observable.combineLatest(usernameObs, passwordObs, ageObs,
                 (u, p, a) -> u.length() > 5 && p.length() > 3 && a > 0)
