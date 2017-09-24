@@ -46,7 +46,7 @@ public class FormActivity extends AppCompatActivity {
 
         Observable<Integer> ageObs = RxTextView.textChanges(edtAge)
                 .map(CharSequence::toString)
-                .map(age -> age.equalsIgnoreCase("") ? "0" : age)
+                .map(age -> age.equals("") ? "0" : age)
                 .map(Integer::parseInt);
 
         disposable.add(Observable.combineLatest(usernameObs, passwordObs, ageObs,
