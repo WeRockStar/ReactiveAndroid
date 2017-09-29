@@ -49,12 +49,14 @@ public class FormActivity extends AppCompatActivity {
                 .map(age -> age.equals("") ? "0" : age)
                 .map(Integer::parseInt);
 
+
         disposable.add(Observable.combineLatest(usernameObs, passwordObs, ageObs,
                 (u, p, a) -> u.length() > 5 && p.length() > 3 && a > 0)
                 .retry(2)
                 .subscribe(
                         enable -> btnSubmit.setEnabled(enable),
                         throwable -> {
+                            btnSubmit.setEnabled(false);
                             Toast.makeText(this, throwable.getMessage(), Toast.LENGTH_LONG).show();
                         }));
 

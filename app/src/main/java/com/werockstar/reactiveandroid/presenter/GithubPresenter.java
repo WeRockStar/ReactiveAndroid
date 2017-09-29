@@ -74,6 +74,8 @@ public class GithubPresenter {
                         }
                 )
         );
+
+
     }
 
     public void dispose() {
