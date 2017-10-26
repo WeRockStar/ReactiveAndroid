@@ -1,31 +1,27 @@
-package com.werockstar.reactiveandroid;
+package com.werockstar.reactiveandroid
 
-import android.app.Application;
+import android.app.Application
 
-import com.crashlytics.android.Crashlytics;
-import com.werockstar.reactiveandroid.di.AndroidModule;
-import com.werockstar.reactiveandroid.di.ApplicationComponent;
-import com.werockstar.reactiveandroid.di.DaggerApplicationComponent;
-import com.werockstar.reactiveandroid.di.HttpModule;
-import io.fabric.sdk.android.Fabric;
+import com.crashlytics.android.Crashlytics
+import com.werockstar.reactiveandroid.di.AndroidModule
+import com.werockstar.reactiveandroid.di.ApplicationComponent
+import com.werockstar.reactiveandroid.di.DaggerApplicationComponent
+import com.werockstar.reactiveandroid.di.HttpModule
+import io.fabric.sdk.android.Fabric
 
 
-public class ReactiveApplication extends Application {
+class ReactiveApplication : Application() {
 
-    ApplicationComponent component;
+    var component: ApplicationComponent
+        internal set
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        Fabric.with(this, new Crashlytics());
+    override fun onCreate() {
+        super.onCreate()
+        Fabric.with(this, Crashlytics())
 
         component = DaggerApplicationComponent.builder()
-                .androidModule(new AndroidModule(this))
-                .httpModule(new HttpModule())
-                .build();
-    }
-
-    public ApplicationComponent getComponent() {
-        return component;
+                .androidModule(AndroidModule(this))
+                .httpModule(HttpModule())
+                .build()
     }
 }
