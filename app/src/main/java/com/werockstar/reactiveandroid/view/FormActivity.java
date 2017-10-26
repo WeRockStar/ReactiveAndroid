@@ -51,7 +51,7 @@ public class FormActivity extends AppCompatActivity {
 
 
         disposable.add(Observable.combineLatest(usernameObs, passwordObs, ageObs,
-                (u, p, a) -> u.length() > 5 && p.length() > 3 && a > 0)
+                (user, password, age) -> user.length() > 5 && password.length() > 3 && age > 0)
                 .retry(2)
                 .subscribe(
                         enable -> btnSubmit.setEnabled(enable),

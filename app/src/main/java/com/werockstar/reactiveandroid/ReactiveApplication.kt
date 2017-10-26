@@ -12,8 +12,7 @@ import io.fabric.sdk.android.Fabric
 
 class ReactiveApplication : Application() {
 
-    var component: ApplicationComponent
-        internal set
+    lateinit var component: ApplicationComponent
 
     override fun onCreate() {
         super.onCreate()

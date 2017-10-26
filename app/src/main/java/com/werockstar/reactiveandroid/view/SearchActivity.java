@@ -44,17 +44,14 @@ public class SearchActivity extends AppCompatActivity {
 
         disposable.add(RxTextView.textChanges(edtSearch)
                 .debounce(700, TimeUnit.MICROSECONDS)
-                .map(user -> user.toString())
+                .map(CharSequence::toString)
                 .filter(githubUser -> !githubUser.equalsIgnoreCase(""))
                 .switchMap(user -> api.getUser(user).subscribeOn(Schedulers.io()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .retry()
-                .subscribe(githubInfo -> {
-                    Toast.makeText(this, githubInfo.getName(), Toast.LENGTH_LONG).show();
-                }, throwable -> {
-                    Log.e(TAG, "Error: " + throwable.getMessage());
-                })
+                .subscribe(githubInfo -> Toast.makeText(this, githubInfo.getName(),
+                        Toast.LENGTH_LONG).show(), throwable -> Log.e(TAG, "Error: " + throwable.getMessage()))
         );
     }
 
