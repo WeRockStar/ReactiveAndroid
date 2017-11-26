@@ -43,10 +43,10 @@ class FormActivity : AppCompatActivity() {
         { user, password, age -> user.length > 5 && password.length > 3 && age > 0 }
                 .retry(2)
                 .subscribe(
-                        { enable -> btnSubmit.isEnabled = enable!! }
-                ) { throwable ->
+                        { btnSubmit.isEnabled = it }
+                ) {
                     btnSubmit.isEnabled = false
-                    Toast.makeText(this, throwable.message, Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
                 })
 
     }
