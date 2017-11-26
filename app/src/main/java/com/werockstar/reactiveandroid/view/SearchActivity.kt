@@ -45,10 +45,9 @@ class SearchActivity : AppCompatActivity() {
                 .retry()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ githubInfo ->
-                    Toast.makeText(this, githubInfo.name,
-                            Toast.LENGTH_LONG).show()
-                }) { throwable -> Log.e(TAG, "Error: " + throwable.message) }
+                .subscribe({
+                    Toast.makeText(this, it.name, Toast.LENGTH_LONG).show()
+                }) { Log.e(TAG, "Error: " + it.message) }
         )
     }
 

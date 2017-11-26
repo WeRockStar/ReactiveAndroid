@@ -35,7 +35,12 @@ class FormActivity : AppCompatActivity() {
 
         val ageObs = RxTextView.textChanges(edtAge)
                 .map { it.toString() }
-                .map { age -> if (age == "") "0" else age }
+                .map {
+                    when (it.isEmpty()) {
+                        true -> "0"
+                        else -> it
+                    }
+                }
                 .map { Integer.parseInt(it) }
 
 
