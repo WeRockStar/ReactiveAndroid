@@ -20,7 +20,7 @@ repositories {
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '26.0.3'
 
     def releaseNotes = 'git log --pretty=format:%s --since "yesterday"'.execute([], project.rootDir).text.trim()
 

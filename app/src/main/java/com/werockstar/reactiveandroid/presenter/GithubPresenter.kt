@@ -62,8 +62,6 @@ constructor(private val api: RxApi) {
                 }
                 )
         )
-
-
     }
 
     fun dispose() {
