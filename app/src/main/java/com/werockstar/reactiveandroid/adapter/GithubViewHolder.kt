@@ -17,7 +17,6 @@ class GithubViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     @BindView(R.id.tvName) lateinit var tvName: TextView
 
     init {
-
         ButterKnife.bind(this, view)
     }
 }

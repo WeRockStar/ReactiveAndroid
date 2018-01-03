@@ -25,7 +25,7 @@ constructor(val application: Application) : RecyclerView.Adapter<GithubViewHolde
     }
 
     override fun onBindViewHolder(holder: GithubViewHolder, position: Int) {
-        val user = users!![position]
+        val user = users.get(position)
 
         holder.tvName.text = user.name
         holder.tvBlog.text = user.blog
