@@ -5,21 +5,17 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
-
+import butterknife.BindView
+import butterknife.ButterKnife
 import com.jakewharton.rxbinding2.widget.RxTextView
 import com.werockstar.reactiveandroid.R
 import com.werockstar.reactiveandroid.ReactiveApplication
 import com.werockstar.reactiveandroid.api.RxApi
-
-import java.util.concurrent.TimeUnit
-
-import javax.inject.Inject
-
-import butterknife.BindView
-import butterknife.ButterKnife
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
 class SearchActivity : AppCompatActivity() {
 
@@ -40,8 +36,8 @@ class SearchActivity : AppCompatActivity() {
         disposable.add(RxTextView.textChanges(edtSearch)
                 .debounce(700, TimeUnit.MICROSECONDS)
                 .map { it.toString() }
-                .filter { githubUser -> !githubUser.equals("", ignoreCase = true) }
-                .switchMap { user -> api.getUser(user).subscribeOn(Schedulers.io()) }
+                .filter { it != "" }
+                .switchMap { api.getUser(it).subscribeOn(Schedulers.io()) }
                 .retry()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
