@@ -45,7 +45,7 @@ android {
 }
 
 ext {
-    supportLibs = "27.0.0"
+    supportLibs = "27.0.2"
     rxJava = "2.1.6"
 }
 
