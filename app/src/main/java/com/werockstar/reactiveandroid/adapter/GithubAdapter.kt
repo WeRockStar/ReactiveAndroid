@@ -25,11 +25,11 @@ constructor(val application: Application) : RecyclerView.Adapter<GithubViewHolde
     }
 
     override fun onBindViewHolder(holder: GithubViewHolder, position: Int) {
-        val user = users.get(position)
+        val user = users?.get(position)
 
-        holder.tvName.text = user.name
-        holder.tvBlog.text = user.blog
-        Glide.with(application).load(user.avatarUrl).error(R.mipmap.ic_launcher_round).into(holder.ivAvatar)
+        holder.tvName.text = user?.name
+        holder.tvBlog.text = user?.blog
+        Glide.with(application).load(user?.avatarUrl).error(R.mipmap.ic_launcher_round).into(holder.ivAvatar)
     }
 
     override fun getItemCount() = users?.size ?: 0
