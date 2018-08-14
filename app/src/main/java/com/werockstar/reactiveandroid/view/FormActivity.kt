@@ -31,10 +31,10 @@ class FormActivity : AppCompatActivity() {
                         else -> it
                     }
                 }
-                .map { Integer.parseInt(it) }
+                .map { it.toInt() }
 
 
-        disposable.add(Observables.combineLatest<String, String, Int, Boolean>(usernameObs, passwordObs, ageObs)
+        disposable.add(Observables.combineLatest(usernameObs, passwordObs, ageObs)
         { user, password, age -> user.length > 5 && password.length > 3 && age > 0 }
                 .retry(2)
                 .subscribe({

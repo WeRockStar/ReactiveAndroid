@@ -14,12 +14,11 @@ import com.werockstar.reactiveandroid.api.RxApi
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_search.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class SearchActivity : AppCompatActivity() {
-
-    @BindView(R.id.edtSearch) lateinit var edtSearch: EditText
 
     @Inject lateinit var api: RxApi
 
@@ -30,8 +29,6 @@ class SearchActivity : AppCompatActivity() {
         setContentView(R.layout.activity_search)
 
         (application as ReactiveApplication).component.inject(this)
-
-        ButterKnife.bind(this)
 
         disposable.add(RxTextView.textChanges(edtSearch)
                 .debounce(700, TimeUnit.MICROSECONDS)

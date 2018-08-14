@@ -31,9 +31,9 @@ class GithubActivity : AppCompatActivity(), GithubPresenter.View {
     }
 
     private fun onClickLoadUser() {
-        btnLoad.setOnClickListener({
+        btnLoad.setOnClickListener {
             presenter.getUsers()
-        })
+        }
     }
 
     private fun setUpRecyclerView() {
