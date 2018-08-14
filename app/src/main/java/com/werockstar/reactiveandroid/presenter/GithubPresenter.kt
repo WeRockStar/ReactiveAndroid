@@ -11,12 +11,10 @@ import retrofit2.HttpException
 import java.util.*
 import javax.inject.Inject
 
-class GithubPresenter @Inject
-constructor(private val api: RxApi) {
+class GithubPresenter @Inject constructor(private val api: RxApi) {
 
     private lateinit var view: GithubPresenter.View
-    private val disposable = CompositeDisposable()
-    private val TAG = GithubPresenter::class.java.simpleName
+    private val disposable by lazy { CompositeDisposable() }
 
     interface View {
         fun onUsersResult(users: List<GithubUserResponse>)
@@ -35,7 +33,7 @@ constructor(private val api: RxApi) {
         val airbnbObs = api.getUser("airbnb").subscribeOn(Schedulers.io())
         val microsoftObs = api.getUser("microsoft").subscribeOn(Schedulers.io())
 
-        disposable.add(Observables.zip(werockstarObs, googleObs, facebookObs, airbnbObs, microsoftObs, { w, f, g, a, m ->
+        disposable.add(Observables.zip(werockstarObs, googleObs, facebookObs, airbnbObs, microsoftObs) { w, f, g, a, m ->
             val users = arrayListOf<GithubUserResponse>()
             users.add(w)
             users.add(f)
@@ -43,7 +41,7 @@ constructor(private val api: RxApi) {
             users.add(a)
             users.add(m)
             users
-        })
+        }
                 .onErrorReturn {
                     val users = ArrayList<GithubUserResponse>()
                     users.add(GithubUserResponse("ไม่มีนะ", "นี่ก็ไม่มี", "และนี่ก็ไม่มี"))
