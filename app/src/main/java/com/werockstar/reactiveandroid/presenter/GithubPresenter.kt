@@ -57,8 +57,7 @@ class GithubPresenter @Inject constructor(private val api: RxApi) {
                     view.onUsersResult(it)
                 }, {
                     view.onUsersError()
-                }
-                )
+                })
         )
     }
 

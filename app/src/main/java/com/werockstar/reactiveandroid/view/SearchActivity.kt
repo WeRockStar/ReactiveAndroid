@@ -40,7 +40,9 @@ class SearchActivity : AppCompatActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     Toast.makeText(this, it.name, Toast.LENGTH_LONG).show()
-                }) { Log.e(TAG, "Error: " + it.message) }
+                }, {
+                    Log.e(TAG, "Error: " + it.message)
+                })
         )
     }
 
