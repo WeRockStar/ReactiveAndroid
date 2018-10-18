@@ -10,8 +10,7 @@ import com.werockstar.reactiveandroid.model.GithubUserResponse
 import javax.inject.Inject
 
 
-class GithubAdapter @Inject
-constructor(val application: Application) : RecyclerView.Adapter<GithubViewHolder>() {
+class GithubAdapter @Inject constructor(val application: Application) : RecyclerView.Adapter<GithubViewHolder>() {
 
     private var users: List<GithubUserResponse>? = null
 

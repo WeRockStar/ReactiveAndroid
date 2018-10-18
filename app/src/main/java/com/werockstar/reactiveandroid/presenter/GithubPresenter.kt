@@ -6,6 +6,7 @@ import com.werockstar.reactiveandroid.model.GithubUserResponse
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.Observables
+import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
 import retrofit2.HttpException
 import java.util.*
@@ -33,7 +34,7 @@ class GithubPresenter @Inject constructor(private val api: RxApi) {
         val airbnbObs = api.getUser("airbnb").subscribeOn(Schedulers.io())
         val microsoftObs = api.getUser("microsoft").subscribeOn(Schedulers.io())
 
-        disposable.add(Observables.zip(werockstarObs, googleObs, facebookObs, airbnbObs, microsoftObs) { w, f, g, a, m ->
+        Observables.zip(werockstarObs, googleObs, facebookObs, airbnbObs, microsoftObs) { w, f, g, a, m ->
             val users = arrayListOf<GithubUserResponse>()
             users.add(w)
             users.add(f)
@@ -41,13 +42,11 @@ class GithubPresenter @Inject constructor(private val api: RxApi) {
             users.add(a)
             users.add(m)
             users
-        }
-                .onErrorReturn {
-                    val users = ArrayList<GithubUserResponse>()
-                    users.add(GithubUserResponse("ไม่มีนะ", "นี่ก็ไม่มี", "และนี่ก็ไม่มี"))
-                    users
-                }
-                .subscribeOn(Schedulers.io())
+        }.onErrorReturn {
+            val users = ArrayList<GithubUserResponse>()
+            users.add(GithubUserResponse("ไม่มีนะ", "นี่ก็ไม่มี", "และนี่ก็ไม่มี"))
+            users
+        }.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .retry { attempt, throwable ->
                     val exception = throwable as HttpException
@@ -57,8 +56,7 @@ class GithubPresenter @Inject constructor(private val api: RxApi) {
                     view.onUsersResult(it)
                 }, {
                     view.onUsersError()
-                })
-        )
+                }).addTo(disposable)
     }
 
     fun dispose() {
