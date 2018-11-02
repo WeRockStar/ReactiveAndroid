@@ -43,9 +43,8 @@ class GithubPresenter @Inject constructor(private val api: RxApi) {
             users.add(m)
             users
         }.onErrorReturn {
-            val users = ArrayList<GithubUserResponse>()
-            users.add(GithubUserResponse("ไม่มีนะ", "นี่ก็ไม่มี", "และนี่ก็ไม่มี"))
-            users
+            ArrayList<GithubUserResponse>()
+                    .apply { add(GithubUserResponse("ไม่มีนะ", "นี่ก็ไม่มี", "และนี่ก็ไม่มี")) }
         }.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .retry { attempt, throwable ->

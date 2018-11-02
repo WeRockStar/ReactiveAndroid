@@ -41,6 +41,6 @@ class HttpModule {
 
     @Provides
     @Singleton
-    fun provideRxApi(retrofit: Retrofit) = retrofit.create(RxApi::class.java)
+    fun provideRxApi(retrofit: Retrofit): RxApi = retrofit.create(RxApi::class.java)
 
 }
