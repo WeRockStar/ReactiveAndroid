@@ -35,16 +35,9 @@ class GithubPresenter @Inject constructor(private val api: RxApi) {
         val microsoftObs = api.getUser("microsoft").subscribeOn(Schedulers.io())
 
         Observables.zip(werockstarObs, googleObs, facebookObs, airbnbObs, microsoftObs) { w, f, g, a, m ->
-            val users = arrayListOf<GithubUserResponse>()
-            users.add(w)
-            users.add(f)
-            users.add(g)
-            users.add(a)
-            users.add(m)
-            users
+            listOf<GithubUserResponse>(w, f, g, a, m)
         }.onErrorReturn {
-            ArrayList<GithubUserResponse>()
-                    .apply { add(GithubUserResponse("ไม่มีนะ", "นี่ก็ไม่มี", "และนี่ก็ไม่มี")) }
+            listOf(GithubUserResponse("ไม่มีนะ", "นี่ก็ไม่มี", "และนี่ก็ไม่มี"))
         }.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .retry { attempt, throwable ->
