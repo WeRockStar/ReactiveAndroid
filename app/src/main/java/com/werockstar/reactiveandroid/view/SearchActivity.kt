@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.jakewharton.rxbinding2.widget.RxTextView
+import com.jakewharton.rxbinding3.widget.textChanges
 import com.werockstar.reactiveandroid.R
 import com.werockstar.reactiveandroid.ReactiveApplication
 import com.werockstar.reactiveandroid.api.RxApi
@@ -27,7 +27,7 @@ class SearchActivity : AppCompatActivity() {
 
         (application as ReactiveApplication).component.inject(this)
 
-        disposable.add(RxTextView.textChanges(edtSearch)
+        disposable.add(edtSearch.textChanges()
                 .debounce(700, TimeUnit.MICROSECONDS)
                 .map { it.toString() }
                 .filter { it != "" }

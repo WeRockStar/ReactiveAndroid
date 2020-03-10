@@ -9,7 +9,6 @@ import io.reactivex.rxkotlin.Observables
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
 import retrofit2.HttpException
-import java.util.*
 import javax.inject.Inject
 
 class GithubPresenter @Inject constructor(private val api: RxApi) {
