@@ -1,12 +1,9 @@
 package com.werockstar.reactiveandroid.view
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
-import android.widget.EditText
 import android.widget.Toast
-import butterknife.BindView
-import butterknife.ButterKnife
+import androidx.appcompat.app.AppCompatActivity
 import com.jakewharton.rxbinding2.widget.RxTextView
 import com.werockstar.reactiveandroid.R
 import com.werockstar.reactiveandroid.ReactiveApplication

@@ -1,22 +1,18 @@
 package com.werockstar.reactiveandroid.adapter
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
-
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.werockstar.reactiveandroid.R
+import com.werockstar.reactiveandroid.model.GithubUserResponse
+import kotlinx.android.synthetic.main.github_item_row.view.*
 
-import butterknife.BindView
-import butterknife.ButterKnife
+class GithubViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
-class GithubViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-    @BindView(R.id.ivAvatar) lateinit var ivAvatar: ImageView
-    @BindView(R.id.tvBlog) lateinit var tvBlog: TextView
-    @BindView(R.id.tvName) lateinit var tvName: TextView
-
-    init {
-        ButterKnife.bind(this, view)
-    }
+	fun bind(user: GithubUserResponse) {
+		view.tvName.text = user.name
+		view.tvBlog.text = user.blog
+		Glide.with(view.context).load(user.avatarUrl).error(R.mipmap.ic_launcher_round)
+			.into(view.ivAvatar)
+	}
 }

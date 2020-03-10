@@ -13,9 +13,6 @@ import javax.inject.Inject
 
 class GithubActivity : AppCompatActivity(), GithubPresenter.View {
 
-
-    private val TAG = GithubActivity::class.java.simpleName
-
     @Inject lateinit var githubAdapter: GithubAdapter
     @Inject lateinit var presenter: GithubPresenter
 
