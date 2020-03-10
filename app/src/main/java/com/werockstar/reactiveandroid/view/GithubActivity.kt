@@ -1,8 +1,8 @@
 package com.werockstar.reactiveandroid.view
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.werockstar.reactiveandroid.R
 import com.werockstar.reactiveandroid.ReactiveApplication
 import com.werockstar.reactiveandroid.adapter.GithubAdapter
